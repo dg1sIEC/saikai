@@ -6,6 +6,8 @@ import app from './fb.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Ch1 from './1.js'
+import Ch3 from './3.js'
+
 const provider = new GoogleAuthProvider();
 class App extends React.Component {
 
@@ -54,6 +56,7 @@ class App extends React.Component {
     <BrowserRouter>
       <Routes>
         <Route path='/1' element={<Ch1/>}></Route>
+        <Route path='/3' element={<Ch3/>}></Route>
       </Routes>
     </BrowserRouter>
       <link href="https://webfontworld.github.io/naver/MaruBuri.css" rel="stylesheet"></link>
