@@ -1,8 +1,23 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import img1 from './image/001.png'
+
 function Ch1(){
     const [answer, setAnswer] = useState("");
     const handleChange = ({ target : { value }}) => setAnswer(value);
+
+    const navigate = useNavigate();
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      if (answer.toLowerCase() === "a") {
+        navigate("/3");
+      } else {
+        alert("틀렸습니다! 다시 생각해 보세요.");
+      }
+    };
+  
     return <div className="chapters">
         <h2 className="title">1. Alpha</h2>
         <p className="story">그녀를 처음 만났던 건, 어느 따뜻한 봄날이었던 거 같아요.<br/>
@@ -14,7 +29,7 @@ function Ch1(){
 그게 그녀와 나의 첫 만남이었어요.</p>
 <img className="questionImg" src={img1} /><br />
 <p>나는 누구인가?</p><br />
-<form className="answerField">
+<form className="answerField" onSubmit={handleSubmit}>
     <input class="input is-rounded is-small" type="text" placeholder="정답을 이곳에 입력하세요" value={answer} onChange={handleChange} />
     <button class="button is-small is-rounded" type="submit">정답 제출</button>
 </form>
